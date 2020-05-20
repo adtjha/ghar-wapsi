@@ -1,0 +1,27 @@
+div.responsiveBox{
+    max-width: 100%;
+    min-height: 1px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    margin: auto;
+}
+
+div.tab{
+    width: 45%;
+    margin: auto;
+}
+
+div.entry, div.display{
+    display: grid;
+    width: 50%;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    div.responsiveBox{
+        flex-direction: column;
+    }
+}

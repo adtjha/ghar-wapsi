@@ -5,6 +5,22 @@
             age: "18",
             gender: "M",
             food: "V",
+            Journey: {
+                from: "411044",
+                address: {
+                    State: "Maharashtra",
+                    District: "Pune",
+                    Block: "Pune City East",
+                    Name: "P.C.N.T"
+                },
+                to: "831005",
+                address: {
+                    State: "Jharkhand",
+                    District: "East Singhbhum",
+                    Block: "Kadma",
+                    Name: "Kadma"
+                }
+            },
             travellers: {
                 count: 3,
                 with: {

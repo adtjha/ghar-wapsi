@@ -13,7 +13,7 @@ import 'antd/dist/antd.css';
 import '../App.css';
 
 import Login from './Login';
-import Journey from './Journey';
+import Journey from './JourneyClass';
 
 function Single(){
     const { Title } = Typography;
@@ -22,7 +22,7 @@ function Single(){
     const steps = [
           {
             title: 'Journey',
-            content: Journey(),
+            content: <Journey />,
           },
           {
             title: 'Travellers',
@@ -31,10 +31,6 @@ function Single(){
           {
             title: 'Pay',
             content: Pay(),
-          },
-          {
-            title: 'Verify',
-            content: 'Enter the contact number, you entered before, type in the OTP you received, and verify exsistence.',
           },
           {
             title: 'Group',
@@ -94,4 +90,4 @@ function Group(){
             <h4>Get to know your group.</h4>
         </div>
     );
-};            
+};      

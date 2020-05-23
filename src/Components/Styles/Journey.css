@@ -14,10 +14,12 @@ div.tab{
 
 div.entry, div.display{
     display: grid;
-    width: 50%;
+    width: 90%;
     grid-template-columns: 1fr 2fr;
     grid-gap: 10px;
     margin: auto;
+    margin-inline-start: 10px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {

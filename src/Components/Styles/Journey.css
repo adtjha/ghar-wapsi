@@ -3,7 +3,6 @@ div.responsiveBox{
     min-height: 1px;
     display: flex;
     flex-direction: row;
-    padding-bottom: 20px;
     margin: auto;
 }
 
@@ -12,14 +11,18 @@ div.tab{
     margin: auto;
 }
 
+div.box{
+    width: 90%;
+    margin: 1rem;
+}
+
 div.entry, div.display{
     display: grid;
     width: 90%;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 60px auto;
     grid-gap: 10px;
-    margin: auto;
+    margin: 10px auto;
     margin-inline-start: 10px;
-    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {

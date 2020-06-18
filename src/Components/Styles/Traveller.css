@@ -1,0 +1,41 @@
+div.responsiveBox{
+    max-width: 100%;
+    min-height: 1px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+div.tab{
+    width: 45%;
+    margin: auto;
+}
+
+.ant-input-number{
+    width: 100%;
+}
+
+form.ant-form.ant-form-horizontal{
+    margin-top: 24px;
+}
+
+div.Traveldisplay{
+    display: grid;
+    width: 100%;
+    margin-top: -3rem;
+    padding: 0 4rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; 
+    grid-gap: 1rem;
+}
+
+div.Traveldisplay > button{
+    width: fit-content;
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    div.responsiveBox{
+        flex-direction: column;
+    }
+}

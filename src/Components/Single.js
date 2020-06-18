@@ -13,7 +13,9 @@ import 'antd/dist/antd.css';
 import '../App.css';
 
 import Login from './Login';
-import Journey from './JourneyClass';
+import Journey from './Journey';
+import TravellerDetails from './_Traveller';
+import Group from './Group';
 
 function Single(){
     const { Title } = Typography;
@@ -26,7 +28,7 @@ function Single(){
           },
           {
             title: 'Travellers',
-            content: Info(),
+            content: <TravellerDetails />,
           },
           {
             title: 'Pay',
@@ -34,7 +36,7 @@ function Single(){
           },
           {
             title: 'Group',
-            content: Group(),
+            content: <Group />,
           },
         ];
     
@@ -50,7 +52,7 @@ function Single(){
                         <Screens steps={steps}/>
                 </Content>
                 <Footer>
-                    <Title level={4}>Made with &hearts; by  <a href="https://www.google.com/search?q=adtjha">chacha</a>.</Title>
+                    <Title level={4}>Made with &hearts; by  <a href="https://www.google.com/search?q=adtjha">adtjha</a>.</Title>
                 </Footer>
             </Layout>
         </div>
@@ -59,16 +61,6 @@ function Single(){
 }
 
 export default Single;
-                    
-function Info(){
-    return (
-    <div>
-        <h4>Information about the traveller. Preferences of the traveller.</h4>
-        <a>Name,  Age,  Gender,  Food</a><br/>
-        <a>Add More</a>
-    </div>
-    );
-};
                         
 function Pay(){
     return (
@@ -79,15 +71,4 @@ function Pay(){
     );
 };
             
-function Group(){
-    return (
-        <div>
-            <h2>First, check these in the background.</h2>
-            <ol>
-                <li><a>Check if the payment has been received.</a></li>
-                <li><a>Calculate.</a></li>
-            </ol>
-            <h4>Get to know your group.</h4>
-        </div>
-    );
-};      
+     

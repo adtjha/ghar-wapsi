@@ -1,6 +1,25 @@
 .App {
-  text-align: center;
+  margin: auto;
 }
+
+.ant-layout * {
+  border-radius: 8px;
+}
+
+div.responsiveBox{
+    max-width: 100%;
+    min-height: 1px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+div.box{
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+}
+
 
 header.ant-layout-header{
     background: #343434;
@@ -26,9 +45,7 @@ footer.ant-layout-footer{
 
 div.body{
     margin: auto;
-    margin-top: 40px;
-    padding: 30px 60px;
-    width: 80%;
+    padding: 6vh 8vw;
 /*    border: 1px solid #3f3f3f;*/
 }
 
@@ -61,7 +78,17 @@ div.body{
     margin-top: 24px;
 }
 
+.transact {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 6fr;
+    grid-gap: 1em;
+}
 
+transact > .ant-space, .ant-space-horizontal, .ant-space-align-center {
+  margin: auto;
+  text-align: initial;
+}
 
 @media only screen and (max-width: 600px) {
     div.body{

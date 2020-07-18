@@ -8,7 +8,6 @@ import { Layout } from 'antd';
 
 import Screens from './Screens';
 
-import { NodeIndexOutlined, SolutionOutlined, WalletOutlined, LikeOutlined  } from '@ant-design/icons';
 
 import 'antd/dist/antd.css';
 import '../App.css';
@@ -16,34 +15,28 @@ import '../App.css';
 import Login from './Login';
 import Journey from './Journey';
 import TravellerDetails from './_Traveller';
-import Pay from './Pay';
 import Group from './Group';
 
 function Single(){
     const { Title } = Typography;
     const { Header, Footer, Sider, Content } = Layout;
-    const charge = 99;
 //    const { Step } = Steps;
     const steps = [
           {
             title: 'Journey',
             content: <Journey />,
-            icon: <NodeIndexOutlined />
           },
           {
             title: 'Travellers',
             content: <TravellerDetails />,
-            icon: <SolutionOutlined />
           },
           {
             title: 'Pay',
-            content: <Pay charge={charge} />,
-            icon: <WalletOutlined />
+            content: Pay(),
           },
           {
             title: 'Group',
             content: <Group />,
-            icon: <LikeOutlined />
           },
         ];
     
@@ -69,6 +62,13 @@ function Single(){
 
 export default Single;
                         
-
+function Pay(){
+    return (
+        <div>
+            <h3>Add extension from Payment Handler Merchant.</h3>
+            <h4>Pay here for the service and the platform being used.</h4>
+        </div>
+    );
+};
             
      

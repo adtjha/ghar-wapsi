@@ -1,10 +1,20 @@
-
+div.responsiveBox{
+    max-width: 100%;
+    min-height: 1px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
 
 div.tab{
     width: 45%;
     margin: auto;
 }
 
+div.box{
+    width: 90%;
+    margin: 1rem;
+}
 
 div.entry, div.display{
     display: grid;

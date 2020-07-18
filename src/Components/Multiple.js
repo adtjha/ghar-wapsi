@@ -1,101 +1,68 @@
-import React, { Component, useState, useEffect } from 'react';
-
-import { Menu, Space, Input, Button, Form, Divider, Upload, message } from 'antd';
-import { DollarCircleOutlined, UploadOutlined } from '@ant-design/icons';
-
+import React from 'react';
 
 import { Typography } from 'antd';
+
+import { Link } from "react-router-dom";
+
+import { Layout } from 'antd';
+
+import Screens from './Screens';
+
 
 import 'antd/dist/antd.css';
 import '../App.css';
 
-import './Admin_Components/admin.css';
-
-const { SubMenu } = Menu;
-
-const FormEntry = () => {
-  const [form] = Form.useForm();
-  const [, forceUpdate] = useState();
-  
-  useEffect(() => {
-    forceUpdate({});
-  }, []);
-  
-  const onFinish = values => {
-    console.log('Finish:', values.payment);
-  };
-  
-  return(
-    <div>
-      <Space>
-        <Form form={form} name="horizontal_login" layout="inline" onFinish={onFinish}>
-          <Form.Item name={['payment', 'transactionID']} >
-            <Input placeholder="transaction number" />
-          </Form.Item>
-          <Form.Item name={['payment','transactionAmt']} >
-            <Input placeholder="transaction amount" />
-          </Form.Item>
-          <Form.Item name={['payment','transactionCount']} >
-            <Input placeholder="paid for" />
-          </Form.Item>
-          <Form.Item shouldUpdate>
-            {() => (
-              <Button
-                type="primary"
-                icon={<DollarCircleOutlined />}
-                htmlType="submit"
-                disabled={
-                  !form.isFieldsTouched(true) ||
-                  form.getFieldsError().filter(({ errors }) => errors.length).length
-                }
-              >
-                Add Transaction
-              </Button>
-            )}
-          </Form.Item>
-        </Form>
-      </Space>
-      <Divider/>
-      <Upload>
-        <Button>
-          <UploadOutlined /> Click to Upload
-        </Button>
-      </Upload>
-    </div>
-  );
-};
-
-class Admin extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      current: 'mail'
-    }
-    this.handleClick = this.handleClick.bind(this);
-  }
-  
-  handleClick = e => {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
-  };
-  
-  render(){
+function Multiple(){
     const { Title } = Typography;
-    return(
-      <div className="admin">
-        <Title>Admin's area</Title>
-        <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-          <Menu.Item key="money" icon={<DollarCircleOutlined />}>
-            Transactions
-          </Menu.Item>
-        </Menu>
-        <br/><br/>
-        <FormEntry />
-      </div>
+    const { Header, Footer, Sider, Content } = Layout;
+//    const { Step } = Steps;
+        const steps = [
+          {
+            title: 'Login',
+            content: 'Login here, and confirm your group.',
+          },
+          {
+            title: 'Location',
+            content: 'Enter your current Location. Starting point of your journey.',
+          },
+          {
+            title: 'Details',
+            content: 'Details of all the Passengers that are travelling with you.',
+          },
+          {
+            title: 'Destination',
+            content: 'Enter your destination, place where you want to travel to, end point of your journey.',
+          },
+          {
+            title: 'Pay',
+            content: 'Pay here for the service and the platform being used.',
+          },
+          {
+            title: 'Group',
+            content: 'Get to know your group.',
+          },
+        ];
+    
+    return (
+        <div className="body">
+            <Layout>
+                <Header>
+                    <Title>Multiple Travellers</Title>
+                    <Link to="/">Go to Home.</Link>
+                </Header>
+                <Content>
+                    <Title level={4}>Follow the below process to get your group.</Title>
+                        <Screens steps={steps}/>
+                </Content>
+                <Footer>
+                    <Title level={4}>Made with &hearts; by  <a href="https://www.google.com/search?q=adtjha">chacha</a>.</Title>
+                </Footer>
+            </Layout>
+        </div>
+           
     );
-  }
 }
 
-export default Admin;
+export default Multiple;
+
+

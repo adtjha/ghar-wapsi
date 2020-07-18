@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './Components/Home.js';
 import Single from './Components/Single.js';
-import Admin from './Components/Multiple.js';
+import Multiple from './Components/Multiple.js';
 import 'antd/dist/antd.css';
 
 
@@ -19,7 +19,11 @@ import './App.css';
 export default function App() {
   return (
     <Router>
-      <div className="App">
+      <div>
+        
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/manager">
             <Manager />
@@ -27,8 +31,8 @@ export default function App() {
           <Route path="/single">
             <Single />
           </Route>
-          <Route path="/admin">
-            <Admin />
+          <Route path="/multiple">
+            <Multiple />
           </Route>
           <Route path="/">
             <Home />
@@ -37,6 +41,14 @@ export default function App() {
       </div>
     </Router>
   );
+}
+
+function Users() {
+  return (<div>
+      <h2>Multiple Passenger</h2>
+      <Link to="/">Home</Link>
+        </div>
+    );
 }
 
     

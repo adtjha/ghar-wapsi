@@ -13,7 +13,7 @@ class Screens extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
-      current: 0,
+      current: 0
     };
   }
     
@@ -32,9 +32,9 @@ class Screens extends React.Component {
     const steps = this.props.steps;
     return (
       <div>
-        <Steps current={current}>
+        <Steps current={current} status={"process"} >
           {steps.map(item => (
-            <Step key={item.title} title={item.title} />
+            <Step title={item.title} icon={item.icon}  />
           ))}
         </Steps>
         <div className="steps-content">{steps[current].content}</div>

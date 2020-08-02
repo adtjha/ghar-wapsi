@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Steps } from 'antd';
 
-import { Input, Popover, Button, Space } from 'antd';
+import { message, Input, Popover, Button, Space } from 'antd';
 import { DollarCircleOutlined } from '@ant-design/icons';
 
 import 'antd/dist/antd.css';
@@ -12,15 +12,38 @@ class Group extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            journey: (JSON.parse(localStorage.getItem('journey'))),
-            travellers: (JSON.parse(localStorage.getItem('travellers'))).travellers,
             paymentID: '',
             loading: false
-        }
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.stepChange = this.stepChange.bind(this);
+        this.travellers = JSON.parse(localStorage.getItem('travellers'));
+        this.journey = JSON.parse(localStorage.getItem('journey'));
+        this.current = 0;
+        this.steps = [
+            {
+                title: 'Check Payment',
+                description: 'Checking for payment reception.',
+                status: 'process'
+            },
+            {
+                title: 'Generate Group',
+                description: 'Creating group and generating group_id.',
+                status: 'wait'
+            },
+            {
+                title: 'Portal Login',
+                description: 'Login to portal, using your transaction id.',
+                status: 'wait'
+            }
+        ];
     }
-    
+  
     componentDidMount(){
-        
+      this.steps.map(e => {
+        e.status = 'wait'
+      });
     }
     
     onSubmit(value){
@@ -36,14 +59,25 @@ class Group extends React.Component{
                         elseif (PaymentAcknowledged is FALSE)
                             decline the request and clean LOCAL STORAGE.
         */
+        
+        
         this.setState({
             loading: true
         });
         setTimeout(()=>{
+            message.success({content: 'Yeah, we have recieved your payment.'});
+            this.current+=2;
+            this.forceUpdate();
             this.setState({
             loading: false
         });
-        }, 3000)
+        }, 3000);
+        
+        
+    }
+    
+    stepChange(){
+      console.log(this.current);
     }
     
     handleChange(e){
@@ -54,31 +88,35 @@ class Group extends React.Component{
     
     render(){
         const state = this.state;
+        const current = this.current;
         const { Step } = Steps;
+        const steps = this.steps;
+        const journey = this.journey;
+        const travellers = this.travellers.travellers;
         return(
                 <div className="responsiveBox">
                     <div className="box">
                         <div className="outline">
                             <h2>Journey</h2>
-                            <h4>from: {state.journey.from}</h4>
-                            <h4>to: {state.journey.to}</h4>
+                            <h4>from: {journey.from}</h4>
+                            <h4>to: {journey.to}</h4>
                         </div>
                         <div className="outline">
                             <h2>Travellers</h2>
-                            <TravelDetails travellers={state.travellers}/>
+                            <TravelDetails travellers={travellers}/>
                         </div>
                     </div>
-                    <div className="box">
+                    <div className="box transact">
                         <h4>Enter Transaction ID to get your group.</h4>
                         <Space>
                             <Input placeholder="transaction number" name="PaymentTransactionID" onChange={this.handleChange} />
-                            <Button type="primary" icon={<DollarCircleOutlined />} loading={this.state.loading} onClick={()=>{this.onSubmit()}}>Check</Button>
+                            <Button type="primary" icon={<DollarCircleOutlined />} loading={this.state.loading} onClick={this.onSubmit}>Check</Button>
                         </Space>
                         <Space>
-                            <Steps direction="vertical" size="small" current={1}>
-                                <Step title="Finished" description="Checking for Payment Confirmation" />
-                                <Step title="In Progress" description="Generating Group ID." />
-                                <Step title="Waiting" description="Click here to login to portal." />
+                            <Steps direction="vertical" size="small" current={current} onChange={this.stepChange}>
+                                {steps.map(item => (
+                                    <Step title={item.title} description={item.description} />
+                                ))}
                             </Steps>
                         </Space>
                     </div>
@@ -118,15 +156,4 @@ class TravelDetails extends React.Component {
     }
 }
 
-
-/**
-<div>
-    <h2>First, check these in the background.</h2>
-    <ol>
-        <li><a>Check if the payment has been received.</a><h3>{this.state.payment}</h3></li>
-        <li><a>Calculate.</a></li>
-    </ol>
-    <h4>Get to know your group.</h4>
-</div>
-*/
 

@@ -21,8 +21,8 @@ export default function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/manager">
-            <Manager />
+          <Route path="/register">
+            <Single />
           </Route>  
           <Route path="/single">
             <Single />

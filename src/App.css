@@ -44,9 +44,8 @@ footer.ant-layout-footer {
 }
 
 div.body {
-  margin: auto;
-  padding: 6vh 8vw;
-  /*    border: 1px solid #3f3f3f;*/
+  width: 90%;
+  padding: 2% 0;
 }
 
 .outline {
@@ -98,13 +97,17 @@ transact > .ant-space,
   border-radius: 0;
 }
 
-.outline > h4, .outline > div > h4 {
+.outline > h4,
+.outline > div > h4 {
   font-size: -webkit-xxx-large;
   font-variant-caps: all-small-caps;
   font-family: monospace;
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
+
+
 
 @media only screen and (max-width: 600px) {
   div.body {
@@ -148,5 +151,30 @@ transact > .ant-space,
 
   img {
     max-width: 100% !important;
+  }
+
+  footer > h4 {
+    margin-bottom: 0 !important;
+  }
+
+  footer.ant-layout-footer {
+    padding: 10px !important;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    background: aquamarine;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .menu > a {
+    font-size: 48px;
+    padding: 0;
   }
 }

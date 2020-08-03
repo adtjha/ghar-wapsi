@@ -1,7 +1,7 @@
 
 
 div.tab{
-    width: 45%;
+    width: auto;
     margin: auto;
 }
 
@@ -12,7 +12,7 @@ div.entry, div.display{
     grid-template-columns: 60px auto;
     grid-gap: 10px;
     margin: 10px auto;
-    margin-inline-start: 10px;
+    margin-inline-start: 0px;
 }
 
 @media only screen and (max-width: 600px) {

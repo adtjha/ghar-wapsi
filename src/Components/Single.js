@@ -13,7 +13,6 @@ import { NodeIndexOutlined, SolutionOutlined, WalletOutlined, LikeOutlined  } fr
 import 'antd/dist/antd.css';
 import '../App.css';
 
-import Login from './Login';
 import Journey from './Journey';
 import TravellerDetails from './_Traveller';
 import Pay from './Pay';

@@ -1,6 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../App.css';
+import './Styles/home.css';
 
 import { Link } from "react-router-dom";
 
@@ -10,7 +11,41 @@ const { Title, Paragraph, Text } = Typography;
 
 function Home() {
   return (
-      <div className="body">
+    <React.Fragment>
+      <Menu />
+      <Typography className="body">
+        <h1>Ghar <span>Wapsi</span>.</h1>
+        <h3>Back to our homes.</h3>
+        <Paragraph>
+          We at Chacha Labs, are working towards a goal, that is to help the stranded migrant travel to their home place, by the mode of long route buses. We are building a platform to connect the stranded migrants and dividing them into groups of 20, and then they can connect with each other, and arrange their own travel.
+        </Paragraph>
+      </Typography>
+    </React.Fragment>
+  );
+}
+
+export default Home;
+
+
+const Menu = () => {
+  var menus = ['Register', 'Login', 'Contact', 'FAQ']
+  return(
+    <ul className="menu">
+      {menus.map(item => 
+        <MenuItem name={item} />
+      )}
+    </ul>
+  )
+}
+
+const MenuItem = (props) => {
+  const url = (word) => { return ('/'+word.toLocaleLowerCase().replace(/ /g, '_')+'/')};
+  return(
+    <li className="menu-item"><a href={url(props.name)}>{props.name}</a></li>
+  )
+}
+
+/**
       <Typography>
             <Title>What are we ?</Title>
             <Paragraph>
@@ -51,8 +86,4 @@ function Home() {
                 </nav>
             </Paragraph>
         </Typography>
-    </div>
-  );
-}
-
-export default Home;
+**/
